@@ -1,5 +1,7 @@
 # sci-lit-rag
 
+_AI-powered Literature Review using RAG and LLMs for Scientific Research_
+
 ## Description
 sci-lit-rag is a Retrieval-Augmented Generation (RAG) pipeline designed for scientific literature review. It combines document retrieval, embedding-based similarity search (using Qdrant), and open-source LLM-powered response generation to assist researchers in efficiently reviewing scientific literature.
 
@@ -42,3 +44,5 @@ sci-lit-rag is a Retrieval-Augmented Generation (RAG) pipeline designed for scie
 - Designed for deployment on Render (free hosting).
 - All configuration is managed via environment variables for portability.
 - Qdrant can be used via Qdrant Cloud or a managed instance.
+
+**Tags:** rag, llm, huggingface, qdrant, scientific-literature, literature-review
