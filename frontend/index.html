@@ -12,6 +12,13 @@
         <textarea id="query" name="query" rows="4" cols="50"></textarea><br><br>
         <button type="submit">Submit</button>
     </form>
+    <br>
+    <form id="pdf-upload-form" enctype="multipart/form-data">
+        <label for="pdf-file">Upload Research Paper (PDF):</label><br>
+        <input type="file" id="pdf-file" name="pdf-file" accept="application/pdf"><br><br>
+        <button type="submit">Upload PDF</button>
+    </form>
+    <div id="upload-status"></div>
     <div id="response">
         <h2>Response:</h2>
         <p id="response-content"></p>
@@ -34,6 +41,29 @@
                 responseDiv.textContent = data.response;
             } catch (error) {
                 responseDiv.textContent = "Error: " + error.message;
+            }
+        });
+
+        document.getElementById("pdf-upload-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const fileInput = document.getElementById("pdf-file");
+            const statusDiv = document.getElementById("upload-status");
+            if (!fileInput.files.length) {
+                statusDiv.textContent = "Please select a PDF file to upload.";
+                return;
+            }
+            const formData = new FormData();
+            formData.append("pdf", fileInput.files[0]);
+            statusDiv.textContent = "Uploading...";
+            try {
+                const response = await fetch("http://localhost:5000/upload", {
+                    method: "POST",
+                    body: formData
+                });
+                const data = await response.json();
+                statusDiv.textContent = data.message || "Upload complete.";
+            } catch (error) {
+                statusDiv.textContent = "Error: " + error.message;
             }
         });
     </script>
