@@ -18,12 +18,13 @@ sci-lit-rag is a Retrieval-Augmented Generation (RAG) pipeline designed for scie
 2. **Steps**:
    - Clone the repository.
    - Install dependencies using `pip install -r requirements.txt`.
-   - Update the `.env` file in the `backend` directory with the following content:
+   - Create a `.env` file in the `backend` directory with the following content:
      ```
      QDRANT_HOST=your-qdrant-host
      QDRANT_PORT=6333
      QDRANT_COLLECTION=scientific_literature
      ```
+   - **Do not commit this file to version control. It is already included in `.gitignore`.**
    - Run the backend and frontend servers.
 
 ## Usage
