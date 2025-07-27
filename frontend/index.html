@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sci-Lit-RAG</title>
+</head>
+<body>
+    <h1>Sci-Lit-RAG</h1>
+    <form id="query-form">
+        <label for="query">Enter your query:</label><br>
+        <textarea id="query" name="query" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="response">
+        <h2>Response:</h2>
+        <p id="response-content"></p>
+    </div>
+    <script>
+        document.getElementById("query-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const query = document.getElementById("query").value;
+            const responseDiv = document.getElementById("response-content");
+            responseDiv.textContent = "Loading...";
+            try {
+                const response = await fetch("http://localhost:5000/query", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ query })
+                });
+                const data = await response.json();
+                responseDiv.textContent = data.response;
+            } catch (error) {
+                responseDiv.textContent = "Error: " + error.message;
+            }
+        });
+    </script>
+</body>
+</html>
