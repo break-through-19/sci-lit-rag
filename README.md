@@ -44,5 +44,3 @@ sci-lit-rag is a Retrieval-Augmented Generation (RAG) pipeline designed for scie
 - Designed for deployment on Render (free hosting).
 - All configuration is managed via environment variables for portability.
 - Qdrant can be used via Qdrant Cloud or a managed instance.
-
-**Tags:** rag, llm, huggingface, qdrant, scientific-literature, literature-review
