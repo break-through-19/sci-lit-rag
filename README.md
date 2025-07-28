@@ -6,7 +6,7 @@ _AI-powered Literature Review using RAG and LLMs for Scientific Research_
 sci-lit-rag is a Retrieval-Augmented Generation (RAG) pipeline designed for scientific literature review. It combines document retrieval, embedding-based similarity search (using Qdrant), and open-source LLM-powered response generation to assist researchers in efficiently reviewing scientific literature.
 
 ## Features
-- Document retrieval from open-source archives like arXiv.
+- Document retrieval from open-source archives like arXiv. [Todo]
 - Embedding generation and similarity search using Qdrant and `sentence-transformers/all-MiniLM-L6-v2`.
 - Query-based response generation with `google/flan-t5-large` (Hugging Face Transformers).
 - Web app interface for interaction.
@@ -30,6 +30,7 @@ sci-lit-rag is a Retrieval-Augmented Generation (RAG) pipeline designed for scie
    - Run the backend and frontend servers.
 
 ## Usage
+- Upload research papers or any relevant documents related to the query.
 - Input queries through the web app interface.
 - Retrieve summaries or detailed explanations based on the query.
 - Example query: "Summarize recent advancements in quantum computing."
